@@ -1,0 +1,28 @@
+name: gh actions demo
+on: 
+  push:
+    branches: [main]
+    paths-ignore: [.github/**]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '15 6 * * 0-3'
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "the job was triggered by  ${{ github.even._ame }}"
+          echo "the name of your branch is ${{ github.ref }} and you repo is ."
+          
+      - uses: actions/checkout@v3.3.0
+
+      - name: list all files in repo
+        run: |
+          echo "the repo ${{ github.repository }} contais the following files"
+          tree
+
+      
+  
